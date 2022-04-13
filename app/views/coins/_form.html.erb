@@ -1,0 +1,44 @@
+<%= form_with(model: coin, local: true) do |form| %>
+  <% if coin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(coin.errors.count, "error") %> prohibited this coin from being saved:</h2>
+
+      <ul>
+      <% coin.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  
+<div class="form-floating mb-3">
+  <input type="description" class="form-control form-control-sm" id="floatingInput" placeholder="Bitcoin">
+  <label for="floatingInput"><%= form.label :description %></label>
+</div>
+  
+<div class="form-floating mb-3">
+  <input type="acronym" class="form-control form-control-sm" id="floatingInput" placeholder="BTC">
+  <label for="floatingInput"><%= form.label :acronym %></label>
+</div>
+
+<div class="form-floating mb-3">
+  <input type="url_image" class="form-control form-control-sm" id="floatingInput" placeholder="https://google.com/image/bitcoin">
+  <label for="floatingInput"><%= form.label :url_image %></label>
+</div>
+
+  
+ <div class="mb-3">
+   <select class="form-select form-select-sm" aria-label="Default select example">
+  <option selected><%= t('links.select') %></option>
+  <option value="1">Proof of Work</option>
+  <option value="2">Proof of Stake</option>
+  <option value="3">Proof Of Capacity</option>
+</select>
+    </div>
+  <div class="actions">
+    <%= form.submit nil,class:"btn btn-outline-success btn-sm", role:"button" %>
+  </div>
+<% end %>
+
+<br>

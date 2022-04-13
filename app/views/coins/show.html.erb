@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<form>
+<div class="mb-3">
+   
+    <%= label_tag nil, @coin.class.human_attribute_name(:description) %>
+    <%= text_field_tag nil, @coin.description, class:"form-control form-control-sm", disabled:true %>
+    
+</div>
+  
+  <div class="mb-3">
+    <%= label_tag nil, @coin.class.human_attribute_name(:acronym) %>
+    <%= text_field_tag nil, @coin.acronym, class:"form-control form-control-sm", disabled:true %>
+  </div>
+
+   <div class="mb-3">
+    <%= label_tag nil, @coin.class.human_attribute_name(:url_image) %>
+    <%= text_field_tag nil, @coin.url_image, class:"form-control form-control-sm", disabled:true %>
+  </div>
+  
+  <div class="mb-3">
+    <%= label_tag nil, @coin.class.human_attribute_name(:mining_type) %>
+    <%= text_field_tag nil, @coin.mining_type.description, class:"form-control form-control-sm", disabled:true %>
+  </div>
+ 
+  </div>
+</form>
+
+<%= link_to t('editing.coin'), edit_coin_path(@coin), class:"btn btn-outline-success btn-sm", role:"button" %> 
+<%= link_to t('links.back'), coins_path, class:"btn btn-outline-success btn-sm", role:"button" %>

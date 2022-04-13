@@ -1,0 +1,29 @@
+<%= form_with(model: mining_type, local: true) do |form| %>
+  <% if mining_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mining_type.errors.count, "error") %> prohibited this mining_type from being saved:</h2>
+
+      <ul>
+      <% mining_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="form-floating mb-3">
+  <input type="description" class="form-control form-control-sm" id="floatingInput" placeholder="Proof of Work">
+  <label for="floatingInput"><%= form.label :description %></label>
+</div>
+
+ <div class="form-floating mb-3">
+  <input type="acronym" class="form-control form-control-sm" id="floatingInput" placeholder="PoW">
+  <label for="floatingInput"><%= form.label :acronym %></label>
+</div>
+
+  <div class="actions">
+    <%= form.submit nil,class:"btn btn-outline-success btn-sm", role:"button" %>
+  </div>
+<% end %>
+
+<br>
